@@ -1,6 +1,9 @@
 import React from "react";
-const Button = ({ onClick }) => {
-  const buttonStyle = {
+interface ButtonProps {
+  onClick: () => void;
+}
+ const Button : React.FC<ButtonProps> = ({ onClick }) => {
+  const buttonStyle: React.CSSProperties = {
     cursor: "pointer",
     backgroundColor: "blue",
     color: "white",

@@ -3,9 +3,14 @@ import useAxios from "./useAxios";
 import Button from "./components/button";
 import TextBlock from "./components/textBlock";
 
-function App() {
-  const [jokeList, setJoke] = useState([]);
-  const { data, loading, error, AxiosData } = useAxios(
+interface Joke {
+  setup: string;
+  punchline: string;
+}
+
+const App: React.FC = () => {
+  const [jokeList, setJoke] = useState<Joke[]>([]);
+  const { data, loading, error, AxiosData } = useAxios<Joke>(
     "https://official-joke-api.appspot.com/random_joke"
   );
   useEffect(() => {
@@ -31,6 +36,6 @@ function App() {
       </ul>
     </>
   );
-}
+};
 
 export default App;
